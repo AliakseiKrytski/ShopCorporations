@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enterprise_size__c</fullName>
+    <description>Enterprise size</description>
+    <externalId>false</externalId>
+    <label>Enterprise size</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Large business</fullName>
+                <default>true</default>
+                <label>Large business</label>
+            </value>
+            <value>
+                <fullName>Microenterprise</fullName>
+                <default>false</default>
+                <label>Microenterprise</label>
+            </value>
+            <value>
+                <fullName>Small business</fullName>
+                <default>false</default>
+                <label>Small business</label>
+            </value>
+            <value>
+                <fullName>Medium business</fullName>
+                <default>false</default>
+                <label>Medium business</label>
+            </value>
+            <value>
+                <fullName>Extra large business</fullName>
+                <default>false</default>
+                <label>Extra large business</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

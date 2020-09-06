@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website__c</fullName>
+    <description>Shop&apos;s website URL</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shop&apos;s website URL</inlineHelpText>
+    <label>Website</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

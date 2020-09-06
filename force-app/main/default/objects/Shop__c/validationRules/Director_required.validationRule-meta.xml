@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Director_required</fullName>
+    <active>true</active>
+    <description>Director required</description>
+    <errorConditionFormula>ISNULL(Director__c)</errorConditionFormula>
+    <errorMessage>Director required</errorMessage>
+</ValidationRule>

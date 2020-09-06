@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Methods__c</fullName>
+    <description>Possible payment methods in this shop</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Want to determine which payment methods shop supports? Select all supported payment methods in this field.</inlineHelpText>
+    <label>Payment Methods</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Payment_Methods</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
