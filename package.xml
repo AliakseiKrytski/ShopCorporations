@@ -6,5 +6,9 @@
       <members>Product2</members>
       <name>CustomObject</name>
    </types>
+   <types>
+      <members>Payment_Methods</members>
+      <name>GlobalValueSet</name>
+   </types>
 <version>49.0</version>
 </Package>
