@@ -10,5 +10,9 @@
       <members>Payment_Methods</members>
       <name>GlobalValueSet</name>
    </types>
+   <types>
+      <members>*</members>
+      <name>ApexClass</name>
+   </types>
 <version>49.0</version>
 </Package>
