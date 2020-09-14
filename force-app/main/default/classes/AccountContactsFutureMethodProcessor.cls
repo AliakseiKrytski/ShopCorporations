@@ -2,17 +2,20 @@ public class AccountContactsFutureMethodProcessor {
 	@future
     public static void processWithBillingAddressAccountContacts()
     {   
+        List<Account> selectedAccounds = new List<Account>();
+        List<Id> withBillingAddressAccountIds = new List<Id>();
+        List<Contact> relatedContacts = new List<Contact>();
+
         // a.
-    	List<Account> selectedAccounds = [SELECT BillingAddress FROM Account LIMIT 150];
+    	selectedAccounds = [SELECT BillingAddress FROM Account LIMIT 150];
          
         // b.
-        List<Id> withBillingAddressAccountIds = new List<Id>();
         for (Account account : selectedAccounds) {
             if (account.BillingAddress != null) {
                 withBillingAddressAccountIds.add(account.Id);
             }
         }
-        List<Contact> relatedContacts = [SELECT Is_Synced__c, Processed_By_Future__c
+        relatedContacts = [SELECT Is_Synced__c, Processed_By_Future__c
                                         FROM Contact
                                         WHERE AccountId IN :withBillingAddressAccountIds];
         
