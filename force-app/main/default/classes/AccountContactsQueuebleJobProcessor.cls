@@ -1,15 +1,18 @@
 public class AccountContactsQueuebleJobProcessor implements Queueable {
 	public void execute(QueueableContext context) {
-    	List<Account> selectedAccounds = [SELECT BillingAddress FROM Account LIMIT 150];
-         
-        // a.
+        List<Account> selectedAccounds = new List<Account>();
         List<Id> withBillingAddressAccountIds = new List<Id>();
+        List<Contact> relatedContacts = new List<Contact>();
+
+        selectedAccounds = [SELECT BillingAddress FROM Account LIMIT 150]; 
+
+        // a.
         for (Account account : selectedAccounds) {
             if (account.BillingAddress != null) {
                 withBillingAddressAccountIds.add(account.Id);
             }
         }
-        List<Contact> relatedContacts = [SELECT Is_Synced__c, Processed_By_Queue__c
+        relatedContacts = [SELECT Is_Synced__c, Processed_By_Queue__c
                                         FROM Contact
                                         WHERE AccountId IN :withBillingAddressAccountIds];
         
