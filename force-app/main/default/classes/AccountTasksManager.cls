@@ -8,31 +8,27 @@ public without sharing class AccountTasksManager {
         description='Reassigns tasks to Sales Admin if account have more than 3 tasks else creates new negotiation task for affected account'
     )
     public static void manageAccountsBatchTasks(List<ManageAccountTasksRequest> requests) {
+        List<Task> accountTasks = new List<Task>();
+        List<Task> tasksToInsert = new List<Task>();
+        List<Task> tasksToUpdate = new List<Task>();
+
         for (ManageAccountTasksRequest request : requests) {
-            manageAccountTasks(request);
+            if (request != null) {
+                accountTasks = [SELECT OwnerId FROM Task WHERE Task.WhatId = :request.affectedAccountId];
+            
+                if (accountTasks.size() <= ACCOUNT_TASKS_MAX_NUMBER) {
+                    String taskSubject = 'Negotiations with ' + request.affectedAccountName;
+                    tasksToInsert.add(new Task(Subject=taskSubject, WhatId=request.affectedAccountId));
+                } else {
+                    for (Task task : accountTasks) {
+                        task.OwnerId = TASKS_OWNER_ID;
+                    }
+                    tasksToUpdate.addAll(accountTasks);
+                }
+            }
         }
-    }
-
-    public static void manageAccountTasks(ManageAccountTasksRequest request) {
-        List<Task> accountTasks = [SELECT OwnerId FROM Task WHERE Task.WhatId = :request.affectedAccountId];
-        if (accountTasks.size() <= ACCOUNT_TASKS_MAX_NUMBER) {
-            assignNewNegotiationTaskToAccount(request);
-        } else {
-            assignOwnerToTasks(accountTasks);
-        } 
-    }
-
-    private static void assignNewNegotiationTaskToAccount(ManageAccountTasksRequest request) {
-        String taskSubject = 'Negotiations with ' + request.affectedAccountName;
-        Task negotiationsTask = new Task(Subject=taskSubject, WhatId=request.affectedAccountId);
-        insert negotiationsTask;
-    }
-
-    private static void assignOwnerToTasks(List<Task> tasks) {
-        for (Task task : tasks) {
-            task.OwnerId = TASKS_OWNER_ID;
-        }
-        update tasks;
+        insert tasksToInsert;
+        update tasksToUpdate;
     }
 
 
