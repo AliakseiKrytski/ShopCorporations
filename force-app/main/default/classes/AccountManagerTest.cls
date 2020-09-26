@@ -2,7 +2,7 @@
 private class AccountManagerTest {
     @TestSetup
     static void makeData(){
-        TestDataFactory.createTestAccountRecords();
+        TestDataFactory.insertTestAccountRecords(1);
     }
 
     @isTest static void testGetAccountById() {
