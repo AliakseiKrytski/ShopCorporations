@@ -1,0 +1,13 @@
+<aura:component>
+    <aura:attribute name="contacts" type="Contact[]" />
+    
+    <lightning:card title="{! 'Contacts (' + v.contacts.length + ')' }">
+        <lightning:layout horizontalAlign="start" verticalAlign="start" multipleRows="true" >
+            <aura:iteration items="{!v.contacts}" var="contact">
+                <lightning:layoutItem>
+                    <c:contactListItem contact="{!contact}"/>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>	
