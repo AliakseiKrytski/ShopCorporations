@@ -1,0 +1,20 @@
+<aura:component>
+    <aura:attribute name="countries" type="CountryDto[]" />
+    <aura:attribute name="tableColumns" type="List"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <lightning:layout horizontalAlign="center" 
+        verticalAlign="start" 
+        multipleRows="false">
+        <lightning:layoutItem>
+            <lightning:datatable
+                keyField="name"
+                data="{! v.countries }"
+                columns="{! v.tableColumns }"
+                showRowNumberColumn="true"
+                hideCheckboxColumn="true"
+                columnWidthsMode="auto"
+                maxColumnWidth="100px" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
