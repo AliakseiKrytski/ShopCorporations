@@ -1,0 +1,17 @@
+<aura:component>
+    <aura:registerEvent name="startSearchCountries" type="c:searchEvent"/>
+
+    <lightning:card title="Countries Search Panel" class="slds-page-header">
+        <p class="slds-p-horizontal_small">
+            <lightning:select aura:id="propSearchBy" name="propSearchBy" label="Search by">
+                <option value="capital">Capital City</option> 
+                <option value="name">Name</option> 
+                <option value="currency">Currency</option> 
+            </lightning:select>
+            <lightning:input aura:id="propSearchText" name="propSearchText" label="Search text" />
+        </p>
+        <div class="slds-box">
+            <lightning:button variant="brand" label="Search" onclick="{!c.clickSearchCountries}" />
+        </div>
+    </lightning:card>
+</aura:component>	
