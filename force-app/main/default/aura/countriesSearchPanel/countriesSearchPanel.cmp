@@ -10,7 +10,7 @@
             </lightning:select>
             <lightning:input aura:id="propSearchText" name="propSearchText" label="Search text" />
         </p>
-        <div class="slds-box">
+        <div class="slds-m-around_medium">
             <lightning:button variant="brand" label="Search" onclick="{!c.clickSearchCountries}" />
         </div>
     </lightning:card>
