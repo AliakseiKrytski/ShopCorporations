@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForRecordHome,force:appHostable" controller="CountriesController">
+    <aura:attribute name="countries" type="CountryDto[]" />
+    <aura:handler name="startSearchCountries" event="c:searchEvent"
+        action="{!c.handleClickSearch}"/>
+    
+    <lightning:layout horizontalAlign="start" verticalAlign="start" multipleRows="true">
+        <lightning:layoutItem>
+            <c:countriesSearchPanel />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <c:countriesTable countries="{!v.countries}" />
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+</aura:component>	
