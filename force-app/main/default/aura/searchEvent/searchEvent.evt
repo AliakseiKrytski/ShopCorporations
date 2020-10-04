@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="searchBy" type="String" required="true"/>
+    <aura:attribute name="searchText" type="String" required="true"/>
+</aura:event>
