@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForRecordHome,force:appHostable" controller="CountriesController">
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="CountriesController">
     <aura:attribute name="countries" type="CountryDto[]" />
     <aura:handler name="startSearchCountries" event="c:searchEvent"
         action="{!c.handleClickSearch}"/>
