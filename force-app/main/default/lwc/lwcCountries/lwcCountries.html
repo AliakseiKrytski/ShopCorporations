@@ -1,0 +1,24 @@
+<template>
+    <article class='slds-card'>
+        <div class='slds-card__header'>
+            <h3 class='slds-text-heading_large slds-text-align_center'>Countries Search Service</h3>
+        </div>
+        <div class='slds-card__body'>
+            <div class='slds-grid slds-grid_align-center slds-gutters_small'>
+                <div class='slds-col slds-size_4-of-5'>
+                    <span class='slds-var-m-bottom_small'>
+                        <c-lwc-countries-search-panel onsearch={handleSearch}></c-lwc-countries-search-panel>
+                    </span>
+                    <span class='slds-align_absolute-center'>
+                        <c-lwc-countries-table countries={countries}></c-lwc-countries-table>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <template if:true={searchError}>
+            <div class='slds-card__footer'>
+                <p class='slds-text-color_error slds-text-heading_medium slds-text-align_center'>Search error: {searchError}</p>
+            </div>
+        </template>
+    </article>
+</template>
