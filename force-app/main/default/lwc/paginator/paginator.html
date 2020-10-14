@@ -1,0 +1,52 @@
+<template>
+    <lightning-layout class='slds-box'>
+        <lightning-layout-item>
+            <lightning-button
+                label="First"
+                icon-name="utility:jumptoleft"
+                onclick={handleFirst}
+                disabled={disablePrevious}
+            ></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button
+                label="Previous"
+                icon-name="utility:chevronleft"
+                onclick={handlePrevious}
+                disabled={disablePrevious}
+            ></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-combobox
+                name="pagesize"
+                value={currentPageElementCount}
+                placeholder="Select page size"
+                options={pageElementCountValues}
+                onchange={handlePageSizeChange}
+                variant="label-hidden"
+                label="Page size"
+                class='slds-size_small'
+            ></lightning-combobox>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button
+                label="Next"
+                icon-name="utility:chevronright"
+                icon-position="right"
+                onclick={handleNext}
+                disabled={disableNext}
+            ></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button
+                label="Last"
+                icon-name="utility:jumptoright"
+                icon-position="right"
+                onclick={handleLast}
+                disabled={disableNext}
+            ></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
