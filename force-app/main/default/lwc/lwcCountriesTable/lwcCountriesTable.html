@@ -1,0 +1,21 @@
+<template>
+    <div class='slds-container_medium'>
+        <template if:true={countries}>
+            <div class='slds-container_medium'>
+                <lightning-datatable
+                    key-field="name"
+                    data={countriesSlice}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    column-widths-mode="auto"
+                ></lightning-datatable>
+            </div>
+            <c-paginator id='countries-paginator' total_count={countriesCount} onupdatepage={updatePageContent}></c-paginator>
+        </template>
+        <template if:false={countries}>
+            <p 
+                class='slds-text-align_center slds-text-color_weak slds-text-heading_large'
+            >Results will display at this place</p>
+        </template>
+    </div>
+</template>
