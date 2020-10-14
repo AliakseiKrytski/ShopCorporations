@@ -1,0 +1,36 @@
+<template>
+    <div class='slds-card slds-var-p-bottom_small'>
+        <div class='slds-card__header'>
+            <h3 class='slds-text-heading_medium slds-text-align_center'>Object Search</h3>
+        </div>
+        <div class='slds-card__body slds-var-p-around_small'>
+            <lightning-combobox
+                name="objectname"
+                value={objectName}
+                options={objectNameOptions}
+                onchange={handleObjectNameChange}
+                class='slds-size_small'
+                label="Object type"
+            ></lightning-combobox>
+            <lightning-input
+                type="search"
+                onchange={handleSearchTextChange}
+                class="slds-show slds-is-relative"
+                label="Start input key"
+            ></lightning-input>
+            <template if:true={error}>
+                <p class='slds-text-color_error slds-text-heading_medium slds-text-align_center'>Search error: {error}</p>
+            </template>
+            <template if:true={objects}>
+                <lightning-datatable
+                        key-field="id"
+                        data={objects}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        column-widths-mode="auto"
+                        max-column-width="100px"
+                ></lightning-datatable>
+            </template>
+        </div>
+    </div>
+</template>
